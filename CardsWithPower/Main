@@ -1,0 +1,17 @@
+package A_WorkingWithAbstraction.cardsWithPower;
+
+import A_WorkingWithAbstraction.cardRank.CardRanks;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Card card = new Card(CardRank.valueOf(scanner.nextLine()), CardSuit.valueOf(scanner.nextLine()));
+
+        System.out.printf("Card name: %s of %s; Card power: %d",
+                card.getCardRank(),card.getCardSuit(),card.getCardPower());
+
+    }
+}
