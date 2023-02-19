@@ -1,0 +1,28 @@
+package A_WorkingWithAbstraction.cardsWithPower;
+
+import A_WorkingWithAbstraction.cardRank.CardRanks;
+import A_WorkingWithAbstraction.cardSuit.CardSuits;
+
+public class Card {
+    private CardRank cardRank;
+    private CardSuit cardSuit;
+
+    private int cardPower;
+
+    public Card(CardRank cardRank, CardSuit cardSuit) {
+        this.cardRank = cardRank;
+        this.cardSuit = cardSuit;
+    }
+
+    public int getCardPower() {
+        return cardPower = cardRank.getCardPower()+cardSuit.getSuitPower();
+    }
+
+    public CardRank getCardRank() {
+        return cardRank;
+    }
+
+    public CardSuit getCardSuit() {
+        return cardSuit;
+    }
+}
