@@ -1,0 +1,28 @@
+package A_WorkingWithAbstraction.trafficLights;
+
+public class Bulb {
+    private Color lightInBulbClas;
+
+    public Bulb(Color light) {
+        this.lightInBulbClas = light;
+    }
+
+    public Color getLightInBulbClas() {
+        return lightInBulbClas;
+    }
+
+    public void setLightInBulbClas(Color lightInBulbClas) {
+        this.lightInBulbClas = lightInBulbClas;
+    }
+
+    public void changeColor () {
+
+        if (this.lightInBulbClas == Color.GREEN ) {
+            this.lightInBulbClas = Color.YELLOW;
+        } else if (this.lightInBulbClas == Color.YELLOW) {
+            this.lightInBulbClas = Color.RED;
+        } else if (this.lightInBulbClas == Color.RED) {
+            this.lightInBulbClas = Color.GREEN;
+        }
+    }
+}
