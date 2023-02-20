@@ -1,0 +1,39 @@
+package A_WorkingWithAbstraction.trafficLights;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<String> list = Arrays.stream(scanner.nextLine().split(" "))
+                .collect(Collectors.toList());
+
+        int counter = Integer.parseInt(scanner.nextLine());
+
+        for (int i = 0; i < counter; i++) {
+            String[] newColors = new String[list.size()];
+            for (int j = 0; j < list.size(); j++) {
+
+                Bulb bulb = new Bulb(Color.valueOf(list.get(j)));
+                bulb.changeColor();
+
+                String newColor = bulb.getLightInBulbClas().toString();
+
+                newColors[j] = newColor;
+            }
+            for (int j = 0; j < list.size(); j++) {
+                list.set(j,newColors[j]);
+            }
+
+            String joined = String.join(" ",newColors);
+            System.out.println(joined);
+
+        }
+
+
+    }
+}
