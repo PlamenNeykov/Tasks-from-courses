@@ -1,0 +1,15 @@
+package b_animal_farm;
+
+import java.util.Scanner;
+
+public class main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String inputName = scanner.nextLine();
+        int inputAge = Integer.parseInt(scanner.nextLine());
+
+        Chicken chicken = new Chicken(inputName,inputAge);
+
+        System.out.println(chicken.toString());
+    }
+}
