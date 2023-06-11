@@ -1,0 +1,48 @@
+package d_Person;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+
+        List<Birthable> birthables = new ArrayList<>();
+
+        while (!input.equals("End")) {
+            String[] splitInfo = input.split("\\s+");
+            switch (splitInfo[0]) {
+                case "Citizen":
+                    birthables.add(new Citizen(splitInfo[1],
+                            Integer.parseInt(splitInfo[2]),
+                            splitInfo[3],
+                            splitInfo[4]));
+                    break;
+                case "Pet":
+                    birthables.add(new Pet(splitInfo[1],
+                            splitInfo[2]));
+                    break;
+            }
+
+            input = scanner.nextLine();
+        }
+
+        String year = scanner.nextLine();
+
+        birthables.stream().
+                filter(birthable -> birthable.getBirthDate().endsWith(year)).
+                map(Birthable::getBirthDate).
+                forEach(System.out::println);
+
+    }
+}
+
+
+
+
+
+
