@@ -1,0 +1,38 @@
+package ExceptionsAndErrorHandling;
+
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class NumInRange {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] range = scanner.nextLine().split("\\s+");
+
+        int startOfRange = Integer.parseInt(range[0]);
+        int endOfRange = Integer.parseInt(range[range.length-1]);
+
+        System.out.printf("Range: [%d...%d]\n",startOfRange,endOfRange);
+
+        int validNumber = readValidNum (scanner,startOfRange,endOfRange);
+
+        System.out.println("Valid number: " + validNumber);
+
+    }
+
+    private static int readValidNum(Scanner scanner, int startOfRange, int endOfRange) {
+        for (;;) {
+            String input = scanner.nextLine();
+            try {
+
+                int numberFormatedInput = Integer.parseInt(input);
+                if (numberFormatedInput >= startOfRange && numberFormatedInput <= endOfRange) {
+                    return numberFormatedInput;
+                }
+            } catch (NumberFormatException e) {
+
+            }
+          System.out.println("Invalid number: " + input);
+        }
+    }
+}
