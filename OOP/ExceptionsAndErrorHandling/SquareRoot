@@ -1,0 +1,31 @@
+package ExceptionsAndErrorHandling;
+
+import com.sun.jdi.connect.Connector;
+import org.w3c.dom.ranges.RangeException;
+
+import java.util.Scanner;
+
+public class SquareRoot {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            int inputNum = Integer.parseInt(scanner.nextLine());
+            if (inputNum < 0) {
+                System.out.println("Invalid");
+            } else {
+                double num = inputNum;
+                num = Math.sqrt(num);
+                System.out.printf("%.2f%n",num);
+            }
+
+        } catch (NumberFormatException e) {
+
+            System.out.println("Invalid");
+
+        } finally {
+            System.out.printf("Goodbye");
+        }
+
+    }
+}
+
