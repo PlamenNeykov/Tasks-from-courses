@@ -1,0 +1,30 @@
+package Abstraction.trafficLights;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] startColors = scanner.nextLine().split("\\s+");
+        int countOfRotation = Integer.parseInt(scanner.nextLine());
+
+
+
+        for (int i = 0; i<countOfRotation; i++) {
+            rotateColors(startColors);
+            System.out.println();
+        }
+
+    }
+
+    private static void rotateColors(String[] startColore) {
+        for (int i = 0; i< startColore.length; i++) {
+            Color color = Color.valueOf(startColore[i]);
+            Light currentLight = new Light(color);
+            currentLight.changeColor();
+            System.out.print(currentLight.getColor()+" ");
+
+            startColore[i] = currentLight.getColor().toString();
+        }
+    }
+}
